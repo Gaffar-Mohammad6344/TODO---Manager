@@ -14,7 +14,7 @@ console.log("PORT_CONFIG:", process.env.PORT || "DEFAULT (5000)");
 console.log("------------------------------------------");
 
 // --- MIDDLEWARE ---
-import cors from "cors";
+
 
 const allowedOrigins = [
    "http://localhost:5173",
