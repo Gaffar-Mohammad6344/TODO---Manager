@@ -183,13 +183,14 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import api from "../services/api"; // Import the API service
 import { 
   ChevronLeft, ChevronRight, Clock, Zap, Layers, 
   Target, Orbit, Loader2, Calendar as CalendarIcon, 
   RefreshCw, Database
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api/tasks";
+const API_URL = `${import.meta.env.VITE_API_URL}/tasks`;
 
 // --- CELL COMPONENT ---
 const CalendarCell = ({ day, isCurrentMonth, isToday, tasks, isSelected, onClick }) => {

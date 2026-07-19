@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
+import api from "../services/api"; // Import the API service
 import { 
   Activity, TrendingUp, Zap, Brain, 
   Target, Waves, Database, Loader2 
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api/tasks";
-
+const API_URL = `${import.meta.env.VITE_API_URL}/tasks`;
 // --- DYNAMIC ACTIVITY PULSE (Better than the static image) ---
 const ActivityPulse = ({ tasks }) => {
   // We create 35 blocks (5 weeks). The glow depends on how many tasks were finished.

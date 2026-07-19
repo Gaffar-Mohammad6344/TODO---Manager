@@ -242,12 +242,13 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useOutletContext } from "react-router-dom";
 import axios from "axios";
+import api from "../services/api"; // Import the API service
 import { 
   Zap, Trophy, MoreHorizontal, CheckCircle, Activity, 
   Loader2, BarChart3, AlertCircle, Flame, ListChecks
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api/tasks";
+const API_URL = `${import.meta.env.VITE_API_URL}/tasks`;
 
 const AnimatedNumber = ({ value }) => (
   <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} key={value}>{value}</motion.span>

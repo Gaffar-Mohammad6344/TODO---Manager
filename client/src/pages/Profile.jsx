@@ -199,6 +199,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOutletContext, useNavigate } from "react-router-dom";
+import api from "../services/api"; // Import the API service
 import axios from "axios";
 import { 
   ShieldCheck, 
@@ -246,7 +247,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/tasks", {
+        const res = await api.get("/tasks", {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = res.data.data || [];

@@ -14,11 +14,24 @@ console.log("PORT_CONFIG:", process.env.PORT || "DEFAULT (5000)");
 console.log("------------------------------------------");
 
 // --- MIDDLEWARE ---
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}));
-app.use(express.json());
+import cors from "cors";
+
+const allowedOrigins = [
+   "http://localhost:5173",
+      "https://todo-manager-33sg8idt0-gaffar-s-projects.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 
 // --- DATABASE UPLINK ---
 const connectDB = async () => {

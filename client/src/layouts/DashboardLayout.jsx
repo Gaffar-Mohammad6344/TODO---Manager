@@ -125,6 +125,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import api from "../services/api"; // Import the API service
 import axios from "axios";
 import { 
   LayoutGrid, // Dashboard
@@ -198,7 +199,7 @@ const DashboardLayout = () => {
         return;
       }
       try {
-        const response = await axios.get("http://localhost:5000/api/auth/me", {
+        const response = await api.get("/auth/me", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data.data.user);
