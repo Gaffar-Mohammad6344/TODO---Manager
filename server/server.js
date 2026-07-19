@@ -74,7 +74,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://todo-manager-33sg8idt0-gaffar-s-projects.vercel.app",
+  "https://todo-manager-theta-beryl.vercel.app",
 ];
 
 app.use(
